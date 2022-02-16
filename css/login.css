@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    margin-top: 50px;
+    background-color: tomato;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.usuario, .contraseña{
+    width: 250px;
+    height: 50px;
+        border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.btnLogin{
+    width: 100px;
+    height: 40px;
+    background-color: chartreuse;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnLogin:hover{
+    background-color:rgb(30, 255, 0);
+}
