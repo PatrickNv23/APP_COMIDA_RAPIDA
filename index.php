@@ -1,3 +1,4 @@
+<?php include_once("datos/conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,91 +7,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMIDA RÁPIDA "GOLDEN CHIPS"</title>
     <link rel="shortcut icon" href="./Imagenes/iconoPagina.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/principal.css">
 </head>
 <body>
-    <header>
-        <div>
-            <a href="./index.php">
-                <img src="" alt="">
+    <header class="header">
+        <div class="contenedor_logo">
+            <a class="enlace_logo" href="./index.php">
+                <img class="logo" src="./Imagenes/iconoPagina.png" alt="">
             </a>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="./vistas/Vistalogin.php">Login</a>
+        <nav class="navegacion">
+            <ul class="ul_navegacion">
+                <li class="li_navegacion">
+                    <a class="enlace_nav" href="./vistas/Vistalogin.php">Login</a>
                 </li>
-                <li>
-                    <a href="./vistas/VistaRegistrate.php">Regístrate</a>
+                <li class="li_navegacion">
+                    <a class="enlace_nav" href="./vistas/VistaRegistrate.php">Regístrate</a>
                 </li>
-                <li>
-                    <a href="">Sobre nosotros</a>
+                <li class="li_navegacion">
+                    <a class="enlace_nav" href="">Sobre nosotros</a>
                 </li>
             </ul>
         </nav>
     </header>
     
 
-    <article>
+    <article class="articulo_principal">
+        
         <section class="seccion_titulos">
-            <h1>COMIDA RÁPIDA</h1>
-            <h2>Productos</h2>
+            <h1 class="titulo_principal">COMIDA RÁPIDA</h1>
+            <h2 class="titulo_productos">Productos</h2>
+        </section>
+
+        <section class="seccion_tituloHamburguesas">
+            <h2 class="titulo_producto">HAMBURGUESAS</h2>
         </section>
 
         <section class="seccion_hamburguesas">
-            <div class="contenedor_hamburguesa">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre producto: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
-                        <div>
-                            <input type="submit" value="Enviar">
+            <?php 
+                $query = "SELECT * FROM productos where nombre like ('H%')"; 
+                $resultado = mysqli_query($conexion,$query);
+                while($fila = mysqli_fetch_array($resultado)){ ?>
+                     <div class="contenedor_hamburguesa">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                
+                                    <input class="btnComprar" type="submit" value="Comprar">
+                                
+                            </form>
+                        </div>
+                    </div>
+            <?php
+                }
+            ?>
+           
         </section>
+                <section class="seccion_tituloPollos">
+                    <h2 class="titulo_producto">POLLOS FRITOS</h2>
+                </section>
 
         <section class="seccion_pollos">
-            <div class="contenedor_pollo">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre producto: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
-                        <div>
-                            <input type="submit" value="Enviar">
+            <?php 
+            $query = "SELECT * FROM productos where nombre like('P%') or nombre like('Ca%') or nombre like('A%')";
+            $resultado = mysqli_query($conexion,$query);
+            while($fila = mysqli_fetch_array($resultado)){ ?>
+            <div class="contenedor_hamburguesa">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                
+                                    <input class="btnComprar" type="submit" value="Comprar">
+                                
+                            </form>
+                        </div>
+                    </div>
+
+        <?php
+            }            
+            ?>
+        </section>
+                <section class="seccion_tituloCombos">
+            <h2 class="titulo_producto">COMBOS</h2>
         </section>
 
         <section class="seccion_combos">
-        <div class="contenedor_combos">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre combo: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
-                        <div>
-                            <input type="submit" value="Enviar">
+            <?php 
+            $query = "SELECT * FROM productos where nombre like ('Co%')";
+            $resultado = mysqli_query($conexion,$query);
+            while($fila = mysqli_fetch_array($resultado)){ ?>
+           <div class="contenedor_hamburguesa">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                
+                                    <input class="btnComprar" type="submit" value="Comprar">
+                                
+                            </form>
+                        </div>
+                    </div>
+            
+            
+            
+            <?php
+            }
+            ?>
+        
         </section>
 
     </article>

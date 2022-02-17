@@ -1,3 +1,4 @@
+<?php include_once("../datos/conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,16 +18,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="Vistalogin.php">Login</a>
+                    <a href="./vistas/Vistalogin.php">Login</a>
                 </li>
                 <li>
-                    <a href="VistaRegistrate.php">Regístrate</a>
+                    <a href="./vistas/VistaRegistrate.php">Regístrate</a>
                 </li>
                 <li>
                     <a href="">Sobre nosotros</a>
-                </li>
-                <li>
-                    <a href="../index.php">Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
@@ -40,60 +38,87 @@
         </section>
 
         <section class="seccion_hamburguesas">
-            <div class="contenedor_hamburguesa">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre producto: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
+            <?php 
+                $query = "SELECT * FROM productos where nombre like ('H%')"; 
+                $resultado = mysqli_query($conexion,$query);
+                while($fila = mysqli_fetch_array($resultado)){ ?>
+                     <div class="contenedor_hamburguesa">
                         <div>
-                            <input type="submit" value="Enviar">
+                            <img src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div>
+                            <form method="POST" action="">
+                                <input type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p>Nombre producto: <?php echo $fila['nombre'] ?> </p>
+                                <p>Descripción: <?php echo $fila['descripcion'] ?> </p>
+                                <p>Precio: <?php echo $fila['precio'] ?>  </p>
+                                <div>
+                                    <input type="submit" value="Comprar">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            <?php
+                }
+            ?>
+           
         </section>
 
         <section class="seccion_pollos">
+            <?php 
+            $query = "SELECT * FROM productos where nombre like('P%') or nombre like('Ca%') or nombre like('A%')";
+            $resultado = mysqli_query($conexion,$query);
+            while($fila = mysqli_fetch_array($resultado)){ ?>
             <div class="contenedor_pollo">
                 <div>
-                    <img src="" alt="">
+                    <img src="<?php echo $fila['ulrImagen']; ?>">
                 </div>
                 <div>
                     <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre producto: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
+                        <input type="hidden" value="<?php echo $fila['id']; ?>">
+                        <p>Nombre producto: <?php echo $fila['nombre']; ?> </p>
+                        <p>Descripción: <?php echo $fila['descripcion']; ?> </p>
+                        <p>Precio: <?php echo $fila['precio']; ?></p>
                         <div>
-                            <input type="submit" value="Enviar">
+                            <input type="submit" value="Comprar">
                         </div>
                     </form>
                 </div>
             </div>
+
+        <?php
+            }            
+            ?>
         </section>
 
         <section class="seccion_combos">
-        <div class="contenedor_combos">
+            <?php 
+            $query = "SELECT * FROM productos where nombre like ('Co%')";
+            $resultado = mysqli_query($conexion,$query);
+            while($fila = mysqli_fetch_array($resultado)){ ?>
+            <div class="contenedor_combo">
                 <div>
-                    <img src="" alt="">
+                    <img src="<?php echo $fila['ulrImagen'] ?>">
                 </div>
                 <div>
                     <form method="POST" action="">
-                        <input type="hidden" value="idProducto">
-                        <p>Nombre combo: </p>
-                        <p>Descripción: </p>
-                        <p>Precio:</p>
+                        <input type="hidden" value="<?php echo $fila['id']; ?>">
+                        <p>Nombre combo: <?php echo $fila['nombre']; ?> </p>
+                        <p>Descripción: <?php echo $fila['descripcion']; ?> </p>
+                        <p>Precio: <?php echo $fila['precio']; ?></p>
                         <div>
-                            <input type="submit" value="Enviar">
+                            <input type="submit" value="Comprar">
                         </div>
                     </form>
                 </div>
             </div>
+            
+            
+            
+            <?php
+            }
+            ?>
+        
         </section>
 
     </article>
