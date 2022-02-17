@@ -7,20 +7,15 @@ $cantidadVecesError = 0;
     $query = "SELECT * FROM usuarios where usuario= '$usuario' and contraseña='$contraseña'";
 
     $resultado = mysqli_query($conexion,$query);
-    /*
-        if(!isset($resultado)){
-            $cantidadVecesError++;
-            //header("location:index.php");
-            return "ERROR";
-        }else{
 
-        }*/
     if(!$resultado){
         return "ERROR";
     }
     
     if(mysqli_num_rows($resultado) >= 1){
         header("location:../vistas/VistaPrincipal.php");
+    }else{
+        header("location:../index.php");
     }
 }
 ?>

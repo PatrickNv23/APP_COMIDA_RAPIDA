@@ -1,20 +1,6 @@
 <?php
     include_once("conexion.php");
-    // if(isset($_POST['btnRegistrate'])){
-    //     $nombre = $_POST['nombre'];
-    //     $apellido = $_POST['apellido'];
-    //     $email = $_POST['correo'];
-    //     $usuario = $_POST['usuario'];
-    //     $contraseña = $_POST['contrasenia'];
-        
-    //     $query = "INSERT INTO usuarios(nombre,apellido,correo,usuario,contraseña) values('$nombre','$apellido','$email','$usuario','$contraseña')";
 
-    //     $resultado = mysqli_query($conexion,$query);
-    //     if(!isset($resultado)){
-    //         return "ERROR";
-    //     }
-    //     header("location:../index.php");
-    // }
 
     $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];

@@ -58,7 +58,7 @@
                             <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
                         <div class="contenedor_descripcion">
-                            <form class="formulario_comprar" method="POST" action="">
+                            <form class="formulario_comprar" method="POST" action="./vistas/Vistalogin.php">
                                 <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
                                 <p class="dato_producto">Nombre producto </p>
                                 <p>
@@ -95,7 +95,7 @@
                             <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
                         <div class="contenedor_descripcion">
-                            <form class="formulario_comprar" method="POST" action="">
+                            <form class="formulario_comprar" method="POST" action="./vistas/Vistalogin.php">
                                 <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
                                 <p class="dato_producto">Nombre producto </p>
                                 <p>
@@ -132,7 +132,7 @@
                             <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
                         <div class="contenedor_descripcion">
-                            <form class="formulario_comprar" method="POST" action="">
+                            <form class="formulario_comprar" method="POST" action="./vistas/Vistalogin.php">
                                 <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
                                 <p class="dato_producto">Nombre producto </p>
                                 <p>
@@ -162,10 +162,9 @@
     </article>
 
     <footer class="footer">
+        <p class="parrafo-footer">Contáctanos</p>   
          <div class="contenedor_redesSociales">
-            <div class="parrafo">
-                <p class="parrafo-footer">Contáctanos</p>
-            </div>
+             
             <a href="#" class="a1">
                 <i class="fab fa-facebook"></i>
             </a>
@@ -184,5 +183,13 @@
         </div>
     </footer>
         <script src="https://kit.fontawesome.com/60107a401e.js" crossorigin="anonymous"></script>
+
+
+        <script>
+            const btnComprar = document.querySelector('.btnComprar');
+            btnComprar.addEventListener('click',(e)=>{
+                windows.location = "http://localhost:82/Proyectos/Aplicaciones_Distribuidas_I/COMIDA_R%c3%81PIDA/vistas/Vistalogin.php";
+            });
+        </script>
 </body> 
 </html> 

@@ -17,7 +17,10 @@
         <input class="contraseña" id="contraseña" name="contraseña" type="password" placeholder="Ingrese la contraseña">
 
         <input class="btnLogin" name="btnLogin" type="submit" value="Iniciar Sesión">
-        <input class="btnRegistrarse" name="btnRegistrarse" type="submit" value="Registrarse" value="Enviar">
+        <button><a href="./VistaRegistrate.php">Registrate</a></button>
     </form>
+    
+    <button><a href="../index.php">Volver</a></button>
+
 </body>
 </html>

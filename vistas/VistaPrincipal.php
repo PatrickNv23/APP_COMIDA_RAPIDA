@@ -6,35 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMIDA RÁPIDA "GOLDEN CHIPS"</title>
-    <link rel="shortcut icon" href="./Imagenes/iconoPagina.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Imagenes/iconoPagina.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/principal.css">
 </head>
 <body>
-    <header>
-        <div>
-            <a href="./index.php">
-                <img src="" alt="">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="./vistas/Vistalogin.php">Login</a>
-                </li>
-                <li>
-                    <a href="./vistas/VistaRegistrate.php">Regístrate</a>
-                </li>
-                <li>
-                    <a href="">Sobre nosotros</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <?php 
+        include_once("../partials/navPrincipal.php");
+    ?>
+   
     
 
-    <article>
+    <article class="articulo_principal">
+        
         <section class="seccion_titulos">
-            <h1>COMIDA RÁPIDA</h1>
-            <h2>Productos</h2>
+            <h1 class="titulo_principal">COMIDA RÁPIDA</h1>
+            <h2 class="titulo_productos">Productos</h2>
+        </section>
+
+        <section class="seccion_tituloHamburguesas">
+            <h2 class="titulo_producto">HAMBURGUESAS</h2>
         </section>
 
         <section class="seccion_hamburguesas">
@@ -43,18 +38,24 @@
                 $resultado = mysqli_query($conexion,$query);
                 while($fila = mysqli_fetch_array($resultado)){ ?>
                      <div class="contenedor_hamburguesa">
-                        <div>
-                            <img src="<?php echo $fila['ulrImagen']; ?>">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                        <div>
-                            <form method="POST" action="">
-                                <input type="hidden" value="<?php echo $fila['id']; ?>">
-                                <p>Nombre producto: <?php echo $fila['nombre'] ?> </p>
-                                <p>Descripción: <?php echo $fila['descripcion'] ?> </p>
-                                <p>Precio: <?php echo $fila['precio'] ?>  </p>
-                                <div>
-                                    <input type="submit" value="Comprar">
-                                </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="./vistaPedido.php">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                    <input name="btnComprar" class="btnComprar" type="submit" value="Comprar">
+                                
                             </form>
                         </div>
                     </div>
@@ -63,32 +64,45 @@
             ?>
            
         </section>
+                <section class="seccion_tituloPollos">
+                    <h2 class="titulo_producto">POLLOS FRITOS</h2>
+                </section>
 
         <section class="seccion_pollos">
             <?php 
             $query = "SELECT * FROM productos where nombre like('P%') or nombre like('Ca%') or nombre like('A%')";
             $resultado = mysqli_query($conexion,$query);
             while($fila = mysqli_fetch_array($resultado)){ ?>
-            <div class="contenedor_pollo">
-                <div>
-                    <img src="<?php echo $fila['ulrImagen']; ?>">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="<?php echo $fila['id']; ?>">
-                        <p>Nombre producto: <?php echo $fila['nombre']; ?> </p>
-                        <p>Descripción: <?php echo $fila['descripcion']; ?> </p>
-                        <p>Precio: <?php echo $fila['precio']; ?></p>
-                        <div>
-                            <input type="submit" value="Comprar">
+            <div class="contenedor_hamburguesa">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="./vistaCompra.php">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                
+                                    <input name="btnComprar" class="btnComprar" type="submit" value="Comprar">
+                                
+                            </form>
+                        </div>
+                    </div>
 
         <?php
             }            
             ?>
+        </section>
+                <section class="seccion_tituloCombos">
+            <h2 class="titulo_producto">COMBOS</h2>
         </section>
 
         <section class="seccion_combos">
@@ -96,22 +110,29 @@
             $query = "SELECT * FROM productos where nombre like ('Co%')";
             $resultado = mysqli_query($conexion,$query);
             while($fila = mysqli_fetch_array($resultado)){ ?>
-            <div class="contenedor_combo">
-                <div>
-                    <img src="<?php echo $fila['ulrImagen'] ?>">
-                </div>
-                <div>
-                    <form method="POST" action="">
-                        <input type="hidden" value="<?php echo $fila['id']; ?>">
-                        <p>Nombre combo: <?php echo $fila['nombre']; ?> </p>
-                        <p>Descripción: <?php echo $fila['descripcion']; ?> </p>
-                        <p>Precio: <?php echo $fila['precio']; ?></p>
-                        <div>
-                            <input type="submit" value="Comprar">
+           <div class="contenedor_hamburguesa">
+                        <div class="contenedor_imagen">
+                            <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
-                    </form>
-                </div>
-            </div>
+                        <div class="contenedor_descripcion">
+                            <form class="formulario_comprar" method="POST" action="./vistaCompra.php">
+                                <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
+                                <p class="dato_producto">Nombre producto </p>
+                                <p>
+                                     <?php echo $fila['nombre'] ?>
+                                </p>
+
+                                <p class="dato_producto">Descripción</p>
+                                <p class="descripcion_producto">
+                                     <?php echo $fila['descripcion'] ?>
+                                </p>
+                                <p class="dato_producto">Precio: <span class="precio"> <?php echo $fila['precio'] ?> </span> </p>
+                                
+                                    <input name="btnComprar" class="btnComprar" type="submit" value="Comprar">
+                                
+                            </form>
+                        </div>
+                    </div>
             
             
             
@@ -124,10 +145,9 @@
     </article>
 
     <footer class="footer">
+        <p class="parrafo-footer">Contáctanos</p>   
          <div class="contenedor_redesSociales">
-            <div class="parrafo">
-                <p class="parrafo-footer">Contáctanos</p>
-            </div>
+             
             <a href="#" class="a1">
                 <i class="fab fa-facebook"></i>
             </a>
