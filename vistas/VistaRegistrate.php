@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regístrate</title>
+    <title>REGÍSTRATE</title>
+    <link rel="shortcut icon" href="../Imagenes/iconoPagina.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/principal.css">
+    <link rel="stylesheet" href="../css/registrate.css">
 </head>
+
 <body>
-    <h1>¡ REGÍSTRATE !</h1>
+    <?php 
+    include_once("../partials/navInicio.php");
+    ?>
+    <main class="contenedorRegistro">
+          <h1 class="titulo_registrate">¡ REGÍSTRATE !</h1>
     <form class="formulario" method="POST" action="../datos/registrate.php">
 
-    <label for="nombre">Nombre: </label><br>
-    <input class="nombreUsuario" id="usuario" name="nombre" type="text" placeholder="Ingrese su nombre" required><br>
+    <label class="labelRegistro" for="nombre">Nombre: </label><br>
+    <input class="nombreUsuario inputRegistro" id="usuario" name="nombre" type="text" placeholder="Ingrese su nombre" required><br>
 
-    <label for="nombre">Apellidos: </label><br>
-    <input class="apellidoUsuario" id="apellido" name="apellido" type="text" placeholder="Ingrese su apellido" required><br>
+    <label class="labelRegistro" for="nombre">Apellidos: </label><br>
+    <input class="apellidoUsuario inputRegistro" id="apellido" name="apellido" type="text" placeholder="Ingrese su apellido" required><br>
 
-    <label for="nombre">Correo electrónico: </label><br>
-    <input class="email" id="email" name="email" type="email" placeholder="Ingrese su correo electrónico" required><br>
+    <label class="labelRegistro" for="nombre">Correo electrónico: </label><br>
+    <input class="email inputRegistro" id="email" name="email" type="email" placeholder="Ingrese su correo electrónico" required><br>
     
-    <label for="nombre">Usuario: </label><br>
-    <input class="usuario" id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario" required><br>
+    <label class="labelRegistro" for="nombre">Usuario: </label><br>
+    <input class="usuario inputRegistro" id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario" required><br>
 
-    <label for="nombre">Contraseña: </label><br>
-    <input class="contrasenia" id="contrasenia" name="contrasenia" type="password" placeholder="Ingrese su contraseña" required><br>
+    <label class="labelRegistro" for="nombre">Contraseña: </label><br>
+    <input class="contrasenia inputRegistro" id="contrasenia" name="contrasenia" type="password" placeholder="Ingrese su contraseña" required><br>
 
     <input class="btnRegistrate" name="btnRegistrate" type="submit" value="Regístrate">
     </form>
     <br>
-    <button>
-        <a href="../index.php">Volver</a>
+    <button class="btnVolverInicio">
+        <a class="enlaceVolverInicio" href="../index.php">Volver</a>
     </button>
+    </main>
+    <?php 
+    include_once("../partials/footer.php");
+    ?>
+            <script src="https://kit.fontawesome.com/60107a401e.js" crossorigin="anonymous"></script>
 </body>
 </html>

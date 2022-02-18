@@ -183,8 +183,6 @@
         </div>
     </footer>
         <script src="https://kit.fontawesome.com/60107a401e.js" crossorigin="anonymous"></script>
-
-
         <script>
             const btnComprar = document.querySelector('.btnComprar');
             btnComprar.addEventListener('click',(e)=>{
