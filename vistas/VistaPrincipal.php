@@ -5,14 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMIDA RÁPIDA "GOLDEN CHIPS"</title>
+    <title>COMIDA RÁPIDA ""</title>
     <link rel="shortcut icon" href="../Imagenes/iconoPagina.png" type="image/x-icon">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/principal.css">
+    <!-- fuente de letra base -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet"> 
+
+
+    <!-- fuente de letra Título Principal -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <!-- fuente de letra título Productos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/estiloBasePrincipal.css">
 </head>
 <body>
     <?php 
@@ -25,7 +38,13 @@
         
         <section class="seccion_titulos">
             <h1 class="titulo_principal">COMIDA RÁPIDA</h1>
-            <h2 class="titulo_productos">Productos</h2>
+            <!-- <h2 class="titulo_productos">Productos</h2> -->
+            <?php 
+            if(isset($_GET['nombreCliente'])){
+                $nombreCliente = $_GET['nombreCliente'];
+                echo "<p class='nombreCliente'>Bienvenido: " .$nombreCliente. "</p>";
+            }
+            ?>
         </section>
 
         <section class="seccion_tituloHamburguesas">
@@ -78,7 +97,7 @@
                             <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
                         <div class="contenedor_descripcion">
-                            <form class="formulario_comprar" method="POST" action="./vistaCompra.php">
+                            <form class="formulario_comprar" method="POST" action="./vistaPedido.php">
                                 <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
                                 <p class="dato_producto">Nombre producto </p>
                                 <p>
@@ -115,7 +134,7 @@
                             <img class="imagen_producto" src="<?php echo $fila['ulrImagen']; ?>">
                         </div>
                         <div class="contenedor_descripcion">
-                            <form class="formulario_comprar" method="POST" action="./vistaCompra.php">
+                            <form class="formulario_comprar" method="POST" action="./vistaPedido.php">
                                 <input name="id" type="hidden" value="<?php echo $fila['id']; ?>">
                                 <p class="dato_producto">Nombre producto </p>
                                 <p>

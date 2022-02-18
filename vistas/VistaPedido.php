@@ -8,12 +8,24 @@ include_once("../datos/conexion.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra</title>
-    <link rel="stylesheet" href="../css/principal.css">
-    <link rel="stylesheet" href="../css/estiloPedido.css">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../css/estiloBasePrincipal.css">
+    <link rel="stylesheet" href="../css/estilodePedido.css">
+<!-- fuente de letra base -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet"> 
+
+
+    <!-- fuente de letra Título Principal -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <!-- fuente de letra título Productos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <?php 
@@ -41,7 +53,7 @@ include_once("../datos/conexion.php");
                         <div class="contenedor_pedidoDatos">
                             <p class="parrafoNombreProducto">Producto: </p>
                             <p><?php echo $fila['nombre'] ?> </p>
-                            <p class="parrafoDescripcionProducto">Descrición:  </p>
+                            <p class="parrafoDescripcionProducto">Descripción:  </p>
                             <p class="parrafoDescripcion">
                                 <?php echo $fila['descripcion'] ?>
                             </p>

@@ -8,11 +8,23 @@
     <title>COMIDA RÁPIDA "GOLDEN CHIPS"</title>
     <link rel="shortcut icon" href="./Imagenes/iconoPagina.png" type="image/x-icon">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- fuente de letra base -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="./css/principal.css">
+
+    <!-- fuente de letra Título Principal -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <!-- fuente de letra título Productos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/estiloBasePrincipal.css">
 </head>
 <body>
     <header class="header">
@@ -35,13 +47,10 @@
             </ul>
         </nav>
     </header>
-    
-
     <article class="articulo_principal">
         
         <section class="seccion_titulos">
             <h1 class="titulo_principal">COMIDA RÁPIDA</h1>
-            <h2 class="titulo_productos">Productos</h2>
         </section>
 
         <section class="seccion_tituloHamburguesas">

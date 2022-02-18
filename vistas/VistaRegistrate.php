@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGÍSTRATE</title>
     <link rel="shortcut icon" href="../Imagenes/iconoPagina.png" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- fuente de letra base -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="../css/principal.css">
-    <link rel="stylesheet" href="../css/registrate.css">
+
+    <!-- fuente de letra Título Principal -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <!-- fuente de letra título Productos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/estiloBasePrincipal.css">
+    <link rel="stylesheet" href="../css/estilodeRegistrate.css">
 </head>
 
 <body>

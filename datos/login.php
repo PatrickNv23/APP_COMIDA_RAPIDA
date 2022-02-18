@@ -13,9 +13,13 @@ $cantidadVecesError = 0;
     }
     
     if(mysqli_num_rows($resultado) >= 1){
-        header("location:../vistas/VistaPrincipal.php");
+        while($fila = mysqli_fetch_array($resultado)){
+            $nombre = $fila['nombre'];
+        }
+        header("location:../vistas/VistaPrincipal.php?nombreCliente=$nombre");
     }else{
         header("location:../index.php");
     }
 }
+
 ?>
